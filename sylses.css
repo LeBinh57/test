@@ -1,13 +1,105 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f8ff;
+    font-family: 'Arial', sans-serif;
 }
 
-h1 {
-    color: #0066cc;
+.tree {
+    position: relative;
+    width: 200px;
+    height: 300px;
 }
 
-p {
-    font-size: 18px;
+.star {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid yellow;
+    animation: sparkle 1s infinite;
+}
+
+.layer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-style: solid;
+}
+
+.layer1 {
+    top: 20px;
+    border-width: 0 90px 60px 90px;
+    border-color: transparent transparent green transparent;
+    animation: sway 3s ease-in-out infinite;
+}
+
+.layer2 {
+    top: 70px;
+    border-width: 0 70px 50px 70px;
+    border-color: transparent transparent green transparent;
+    animation: sway 3s ease-in-out infinite 0.5s;
+}
+
+.layer3 {
+    top: 120px;
+    border-width: 0 50px 40px 50px;
+    border-color: transparent transparent green transparent;
+    animation: sway 3s ease-in-out infinite 1s;
+}
+
+.layer4 {
+    top: 160px;
+    border-width: 0 30px 20px 30px;
+    border-color: transparent transparent green transparent;
+    animation: sway 3s ease-in-out infinite 1.5s;
+}
+
+.trunk {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 50px;
+    background-color: #8b4513;
+}
+
+.greeting {
+    position: absolute;
+    top: 250px;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: red;
+    animation: fadein 2s;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes sway {
+    0%, 100% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    50% {
+        transform: translateX(-50%) rotate(5deg);
+    }
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
